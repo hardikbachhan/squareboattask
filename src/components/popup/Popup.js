@@ -2,10 +2,17 @@ import React from "react";
 import "./popup.css";
 
 function Popup({ currState }) {
-  const closePopup = () => {
+  const removePopup = () => {
     const popup = document.getElementById("popup");
     popup.classList.remove("open-popup");
   };
+  const closePopup = () => {
+    removePopup();
+  };
+
+  setTimeout(() => {
+    removePopup();
+  }, 10000);
 
   let message = { title: "", body: "" };
 
