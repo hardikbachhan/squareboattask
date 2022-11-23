@@ -6,7 +6,7 @@
 
 .compartment-1 {
   width: 100%;
-  background-color: #1a253c;
+  background-color: linear-gradient(#1a253c, #1A253C);
   height: 40%;
 }
 
