@@ -15,6 +15,7 @@
 }
 
 .login-form {
+    color: #303F60;
     position: absolute;
     top: 20%;
     left: 50%;
@@ -38,6 +39,12 @@
     color: #C6C6C6;
     font-size: 12px;
     background-color: #E8E8E833;
+}
+
+.error-message {
+    font-size: 12px;
+    color: #FF0000;
+    align-self: flex-end;
 }
 
 .login-btn {

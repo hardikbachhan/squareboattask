@@ -18,37 +18,69 @@ function Login() {
     setPassword(updatedPassword);
   };
 
+  const validateEmail = (email) => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      return true;
+    }
+    return false;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateEmail(email)) {
+      setEmailStatus(false);
+      const emailInput = document.querySelector(".login-form-input");
+      emailInput.style.border = "1px solid #FF333380";
+      return;
+    } else {
+      setEmailStatus(true);
+      const emailInput = document.querySelector(".login-form-input");
+      emailInput.style.removeProperty("border");
+    }
+
+    if (password.length <= 6) {
+      setPasswordStatus(false);
+      const [emailInput, passwordInput] =
+        document.querySelectorAll(".login-form-input");
+      emailInput.style.border = "1px solid #FF333380";
+      passwordInput.style.border = "1px solid #FF333380";
+      return;
+    }
+
     const loginDetails = {
       email,
       password,
     };
 
     try {
-        const res = await fetch(
-            "https://jobs-api.squareboat.info/api/v1/auth/login",
-            {
-              method: "POST",
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(loginDetails),
-            }
-          );
-      
-          const userDetails = await res.json();
-          console.log(userDetails);
-
-        if (userDetails.success) {
-
-        } else {
-
+      const res = await fetch(
+        "https://jobs-api.squareboat.info/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(loginDetails),
         }
+      );
 
+      const userDetails = await res.json();
+      console.log(userDetails);
+
+      if (userDetails.success) {
+        const passwordInput = document.querySelectorAll(".login-form-input")[1];
+        passwordInput.style.removeProperty("border");
+        // save the auth token and
+        localStorage.setItem("token", userDetails.data.token);
+        // implement toasters
+        // redirect
+        // history.push("/");
+      } else {
+      }
     } catch (error) {
-        console.log(error.message);
+      console.log(error.message);
     }
   };
 
@@ -70,7 +102,7 @@ function Login() {
               type="email"
               value={email}
               className="form-control login-form-input"
-              id="exampleInputEmail1"
+              id="exampleInputEmail1 emailInput"
               placeholder="Enter you email"
               aria-describedby="emailHelp"
               required
@@ -78,9 +110,11 @@ function Login() {
                 handleEmailChange(e);
               }}
             />
-            {emailStatus && <div id="emailHelp" className="form-text error-message">
-              We'll never share your email with anyone else.
-            </div>}
+            {!emailStatus && (
+              <div id="invalid-feedback" className="form-text error-message">
+                Please enter a valid email address
+              </div>
+            )}
           </div>
           <div className="mb-3">
             <label
@@ -94,12 +128,17 @@ function Login() {
               value={password}
               className="form-control login-form-input"
               placeholder="Enter you password"
-              id="exampleInputPassword1"
+              id="exampleInputPassword1 passwordInput"
               required
               onChange={(e) => {
                 handlePasswordChange(e);
               }}
             />
+            {!passwordStatus && (
+              <div id="invalid-feedback" className="form-text error-message">
+                Incorrect email address or password.
+              </div>
+            )}
           </div>
           <button
             type="submit"
