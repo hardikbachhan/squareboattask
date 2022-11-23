@@ -82,6 +82,11 @@ function Login() {
         // redirect
         // history.push("/");
       } else {
+        setPasswordStatus(false);
+        const [emailInput, passwordInput] =
+          document.querySelectorAll(".login-form-input");
+        emailInput.style.border = "1px solid #FF333380";
+        passwordInput.style.border = "1px solid #FF333380";
       }
     } catch (error) {
       console.log(error.message);
