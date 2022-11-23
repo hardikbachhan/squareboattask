@@ -11,6 +11,8 @@
     top: 0px;
     left: 6rem;
     z-index: 999;
+    height: 70px;
+    background-color: #1a253c;
 }
 
 .title {
