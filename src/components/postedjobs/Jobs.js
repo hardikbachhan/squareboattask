@@ -22,24 +22,38 @@ function Jobs() {
         },
       });
       const jobDetails = await res.json();
-      console.log(jobDetails);
+      setJobs(jobDetails.data.data);
     }
   };
 
   useEffect(() => {
-    console.log("useEffect called");
     fetchJobDetails(0);
-    console.log("useEffect finished");
   }, []);
 
   return (
     <div className="jobs-portal">
       <div className="compartment-1"></div>
       <div className="compartment-2"></div>
-      <div className="jobs-panel">
-        {jobs.map((jobObj) => (
-          <Job key={jobObj.id} />
-        ))}
+      <div className="jobs-page">
+        <h1 className="jobs-panel-heading">
+          <img
+            src={require("../../assets/svg/home.svg").default}
+            alt="home"
+            className="home-img"
+          />
+          Home
+        </h1>
+        <h2 className="job-subheading">Jobs posted by you</h2>
+        <div className="jobs-panel">
+          {jobs.map((jobObj, objIdx) => (
+            <Job
+              key={objIdx}
+              title={jobObj.title}
+              desc={jobObj.description}
+              location={jobObj.location}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

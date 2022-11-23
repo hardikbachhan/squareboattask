@@ -1,0 +1,46 @@
+.job-card {
+  height: 8rem;
+  width: 17rem;
+  margin: 0.5rem 0.25rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.job-title {
+  font-size: 17px;
+  color: #303f60;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-desc {
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #303f60;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-location {
+  color: #303f60;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-btn {
+    font-size: 12px;
+    color: #303F60;
+    width: 125px;
+height: 32px;
+  background-color: #43afff33;
+}

@@ -1,22 +1,23 @@
 import React from "react";
 import "./job.css";
 
-function Job() {
+function Job({ title, desc, location }) {
   return (
-    <div className="card" style="width: 18rem;">
+    <div className="card job-card">
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" className="card-link">
-          Card link
-        </a>
-        <a href="#" className="card-link">
-          Another link
-        </a>
+        <h5 className="card-title job-title">{title}</h5>
+        <p className="card-text job-desc">{desc}</p>
+        <div className="job-data">
+          <p className="card-text job-location">
+            <img
+              src={require("../../../assets/svg/location.svg").default}
+              alt="home"
+              className="home-img"
+            />
+            {location}
+          </p>
+          <button className="btn btn-sm job-btn">View Applications</button>
+        </div>
       </div>
     </div>
   );

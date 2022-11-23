@@ -13,12 +13,41 @@
 .compartment-2 {
   width: 100%;
   background-color: #edf6ff;
-  height: 60%;
+  /* height: 60%; */
+}
+
+.jobs-page {
+  position: absolute;
+  top: 10%;
+  margin: 0 10%;
+  /* left: 50%; */
+  /* transform: translate(-50%); */
+  font-family: "Helvetica 65 Bold", sans-serif;
+  font-size: 22px;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
 }
 
 .jobs-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  color: #303f60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.jobs-panel-heading {
+  font-family: "Helvetica 65 Medium", sans-serif;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.home-img {
+  margin-right: 0.5rem;
+}
+
+.job-subheading {
+  font-family: "Helvetica 65 Medium", sans-serif;
+  color: #ffffff;
+  font-size: 22px;
 }
