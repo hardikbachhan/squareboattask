@@ -1,0 +1,17 @@
+.jobs-portal {
+  height: 100vh;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.compartment-1 {
+  width: 100%;
+  background-color: #1a253c;
+  height: 40%;
+}
+
+.compartment-2 {
+  width: 100%;
+  background-color: #edf6ff;
+  height: 60%;
+}
