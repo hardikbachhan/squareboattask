@@ -1,0 +1,21 @@
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.profile-img {
+  cursor: default;
+  background-color: #d9efff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 46px;
+  height: 46px;
+}
+
+.down-img {
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
