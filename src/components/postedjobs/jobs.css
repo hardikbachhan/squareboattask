@@ -51,3 +51,19 @@
   color: #ffffff;
   font-size: 22px;
 }
+
+.page-count {
+  width: 30px;
+  height: 30px;
+  margin: 1rem 0.25rem;
+  color: #303F60;
+  background-color: #43AFFF33;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.page-prev, .page-next {
+    margin: 0;
+    cursor: pointer;
+}
