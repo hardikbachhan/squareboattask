@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Job from "./jobdetails/Job";
+import NoJobs from "./nojobavailable/NoJobs";
 import "./jobs.css";
 
 function Jobs() {
@@ -27,7 +28,7 @@ function Jobs() {
   };
 
   useEffect(() => {
-    fetchJobDetails(0);
+    // fetchJobDetails(0);
   }, []);
 
   return (
@@ -45,14 +46,15 @@ function Jobs() {
         </h1>
         <h2 className="job-subheading">Jobs posted by you</h2>
         <div className="jobs-panel">
-          {jobs.map((jobObj, objIdx) => (
+            {(jobs.length === 0 ? <NoJobs /> : "hello")}
+          {/* {jobs.map((jobObj, objIdx) => (
             <Job
               key={objIdx}
               title={jobObj.title}
               desc={jobObj.description}
               location={jobObj.location}
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
