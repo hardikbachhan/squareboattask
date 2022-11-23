@@ -1,10 +1,7 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../authContext";
+import React, { useState } from "react";
 import "./login.css";
 
-function Login() {
-  const auth = useContext(AuthContext);
-
+function Login({ setToken, setCurrState }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -70,17 +67,16 @@ function Login() {
       );
 
       const userDetails = await res.json();
-      console.log(userDetails);
 
       if (userDetails.success) {
         const passwordInput = document.querySelectorAll(".login-form-input")[1];
         passwordInput.style.removeProperty("border");
         // save the auth token and
-        auth.dispatch({ type: "LOGGEDIN" });
-        localStorage.setItem("token", userDetails.data.token);
+        const token = userDetails.data.token;
+        localStorage.setItem("token", token);
         // implement toasters
-        // redirect
-        // history.push("/");
+        setToken(token);
+        setCurrState("LOGGEDIN");
       } else {
         setPasswordStatus(false);
         const [emailInput, passwordInput] =

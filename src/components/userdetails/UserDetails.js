@@ -1,13 +1,12 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../authContext";
+import React from "react";
 import "./userdetails.css";
 
-function Logout() {
-  const auth = useContext(AuthContext);
+function UserDetails({setToken, setCurrState }) {
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    auth.dispatch({ type: "" });
+    localStorage.setItem("token", "");
+    setToken("");
+    setCurrState("LOGGEDOUT");
   }
 
   return (
@@ -35,4 +34,4 @@ function Logout() {
   );
 }
 
-export default Logout;
+export default UserDetails;

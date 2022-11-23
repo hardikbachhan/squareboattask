@@ -62,29 +62,29 @@ function Jobs() {
             <NoJobs />
           ) : (
             <>
-            {jobs.map((jobObj, objIdx) => (
-              <Job
-                key={objIdx}
-                title={jobObj.title}
-                desc={jobObj.description}
-                location={jobObj.location}
-              />
-            ))}
-            <div className="pagination">
-            <img
-              src={require("../../assets/svg/prev.svg").default}
-              alt="home"
-              className="page-prev"
-              onClick={handlePrev}
-            />
-            <button className="page-count">{page}</button>
-            <img
-              src={require("../../assets/svg/next.svg").default}
-              alt="home"
-              className="page-next"
-              onClick={handleNext}
-            />
-          </div>
+              {jobs.map((jobObj, objIdx) => (
+                <Job
+                  key={objIdx}
+                  title={jobObj.title}
+                  desc={jobObj.description}
+                  location={jobObj.location}
+                />
+              ))}
+              <div className="pagination">
+                <img
+                  src={require("../../assets/svg/prev.svg").default}
+                  alt="home"
+                  className="page-prev"
+                  onClick={handlePrev}
+                />
+                <button className="page-count">{page}</button>
+                <img
+                  src={require("../../assets/svg/next.svg").default}
+                  alt="home"
+                  className="page-next"
+                  onClick={handleNext}
+                />
+              </div>
             </>
           )}
         </div>

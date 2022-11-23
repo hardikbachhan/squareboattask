@@ -12,14 +12,14 @@ function Popup({ currState }) {
 
   setTimeout(() => {
     removePopup();
-  }, 10000);
+  }, 5000);
 
   let message = { title: "", body: "" };
 
-  if (currState === "login") {
+  if (currState === "LOGGEDIN") {
     message.title = "Login";
     message.body = "You have successfully logged in.";
-  } else {
+  } else if (currState === "LOGGEDOUT") {
     message.title = "Logout";
     message.body = "You have successfully logged out.";
   }

@@ -1,23 +1,18 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../../authContext";
-import Logout from "../userdetails/UserDetails";
-import Popup from "../popup/Popup";
+import React from "react";
+import UserDetails from "../userdetails/UserDetails";
 import "./navbar.css";
 
-function Navbar() {
-  const auth = useContext(AuthContext);
-  const token = auth.state.token;
-
+function Navbar({ token, setToken, setCurrState }) {
   return (
     <div className="navbar">
-      <Popup currState="login" />
       <h3 className="navbar-heading">
         My<span className="title">Jobs</span>
       </h3>
-      {/* {token.length === 0 ? (<button className="navbar-login-btn">Login</button>): 
-      (<Logout />)
-      } */}
-      <Logout />
+      {token.length === 0 ? (
+        <button className="navbar-login-btn">Login</button>
+      ) : (
+        <UserDetails setToken={setToken} setCurrState={setCurrState}/>
+      )}
     </div>
   );
 }
